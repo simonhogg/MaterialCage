@@ -1,10 +1,11 @@
+"use strict";
+
 (function(){
 
   angular
        .module('users')
        .controller('UserController', [
-          'userService', '$mdSidenav', '$mdBottomSheet', '$log', '$q',
-          UserController
+          'userService', '$mdSidenav', '$mdBottomSheet', '$log', '$q'
        ]);
 
   /**
