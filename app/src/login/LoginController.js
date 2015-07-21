@@ -4,7 +4,7 @@
 
   angular
     .module('login')
-    .controller('LoginController', ['$log', '$q', LoginController, '$firebaseAuth', '$scope']);
+    .controller('LoginController', ['$log', '$q','$scope','$firebaseAuth', "Auth", LoginController]);
 
   /**
    * Login Controller
@@ -13,22 +13,15 @@
    * @param avatarsService
    * @constructor
    */
-  function LoginController($log, $q, $scope, $firebaseAuth) {
+  function LoginController($log, $q, $scope, $firebaseAuth, Auth) {
     var self = this;
 
-    var ref = new Firebase("https://docs-sandbox.firebaseio.com");
-    var auth = $firebaseAuth(ref);
+    $scope.auth = Auth;
 
-    $scope.login = function() {
-      $scope.authData = null;
-      $scope.error = null;
-
-      auth.$authAnonymously().then(function(authData) {
-        $scope.authData = authData;
-      }).catch(function(error) {
-        $scope.error = error;
-      });
-    };
+    // any time auth status updates, add the user data to scope
+    $scope.auth.$onAuth(function(authData) {
+      $scope.authData = authData;
+    });
 
   }
 })();

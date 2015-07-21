@@ -33,4 +33,5 @@ var myApp =
       .primaryPalette('green')
       .accentPalette('red');
 
-  });
+  })
+  ;
