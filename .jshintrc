@@ -9,5 +9,10 @@
     "afterEach": false,
     "module": false,
     "inject": false
+  },
+  "-W030": false,
+  "browser": true,
+  "predef": {
+    "Firebase": false
   }
 }

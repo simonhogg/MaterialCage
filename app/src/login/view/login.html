@@ -1,0 +1,24 @@
+<div layout="row" ng-controller="LoginController">
+
+  <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
+
+    <md-toolbar layout="row" class="md-whiteframe-z1">
+      <h1>Material Cage | Login</h1>
+    </md-toolbar>
+
+    <md-content flex id="content">
+
+      <h2>You Need to Login Punk</h2>
+      <a ui-sref="users">Switch to users</a>
+        <button ng-click="login()">Login Anonymously</button>
+
+        <p ng-if="authData">Logged in user:
+          <strong>{{ authData.uid }}</strong>
+        </p>
+        <p ng-if="error">Error:
+          <strong>{{ error }}</strong>
+        </p>
+    </md-content>
+
+  </div>
+</div>

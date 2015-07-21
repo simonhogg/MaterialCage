@@ -2,17 +2,23 @@
 
 var myApp =
   angular
-  .module('myApp', ['ngMaterial', 'ui.router', 'UserController'])
+  .module('myApp', ['ngMaterial', 'ui.router', 'users', 'login', 'firebase'])
   .config(function($mdThemingProvider, $mdIconProvider, $stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise("/users");
+    $urlRouterProvider.otherwise("/");
 
     $stateProvider
+      .state('login', {
+        url: "/",
+        templateUrl: "./src/login/view/login.html",
+        controller: 'LoginController'
+      })
       .state('users', {
         url: "/users",
         templateUrl: "./src/users/view/users.html",
         controller: 'UserController'
-      });
+      })
+      ;
 
     $mdIconProvider
       .defaultIconSet("./assets/svg/avatars.svg", 128)
